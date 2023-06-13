@@ -1,0 +1,6 @@
+#/bin/sh
+
+curl --silent \
+  --location https://api.github.com/repos/megastep/makeself/releases \
+  | grep tag_name | cut -d ":" -f 2 | tr -d "\"\," \
+  | cut -d "-" -f 2 | tac | tr '\n' ' ' | tr -d 'v'

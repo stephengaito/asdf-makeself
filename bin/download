@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# This asdf shell script downloads the correct version of makeself.sh
+
+# NOTE: at the moment this ONLY works on Linux using an Intel or ARM
+# (raspberry pi 4) processor.
+
+trap 'rm -rf "$ASDF_MAKESELF_TMPDIR"' EXIT
+
+ASDF_MAKESELF_TMPDIR=$(mktemp -d /tmp/asdf-makeself-XXXXXX)
+ASDF_DOWNLOAD_PATH=${ASDF_DOWNLOAD_PATH-$ASDF_MAKESELF_TMPDIR}
+
+cd $ASDF_DOWNLOAD_PATH
+
+makeselfURL=https://github.com/megastep/makeself/releases/download/release-$ASDF_INSTALL_VERSION/makeself-$ASDF_INSTALL_VERSION.run
+
+echo "Makeself URL: $makeselfURL"
+
+wget $makeselfURL
+
+if test $? -ne 0
+then
+  rm makeself-$ASDF_INSTALL_VERSION.run
+  exit 1
+else
+  chmod a+x makeself-$ASDF_INSTALL_VERSION.run
+fi

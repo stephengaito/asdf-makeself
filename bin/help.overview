@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# This asdf shell script provides a brief overview of Makeself archive and
+# intallation tool
+
+echo "A self-extracting archiving tool for Unix systems, in 100% shell script."
+echo ""

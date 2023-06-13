@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# This asdf shell script installs makeself
+
+# consider using the trap command
+# see: https://www.shellscript.sh/trap.html
+
+echo   ASDF_DOWNLOAD_PATH: $ASDF_DOWNLOAD_PATH
+echo    ASDF_INSTALL_PATH: $ASDF_INSTALL_PATH
+echo ASDF_INSTALL_VERSION: $ASDF_INSTALL_VERSION
+
+cp -R $ASDF_DOWNLOAD_PATH/* $ASDF_INSTALL_PATH
+
+cd $ASDF_INSTALL_PATH
+
+./makeself-$ASDF_INSTALL_VERSION.run
+
+mkdir bin
+cp makeself-$ASDF_INSTALL_VERSION/*.sh bin
+
+echo "------------------------------------------------------------------"
+echo "asdf-makeself:"
+echo ""
+echo "The asdf system now manages the makeself.sh commands."
+echo ""
+echo "The makeself.sh should now simply work..."
+echo ""

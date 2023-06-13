@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# This asdf shell script provides useful URLS for Makeself.sh archive and
+# installation tool.
+
+echo GitHub https://github.com/megastep/makeself
+echo ""
+echo Makeself.sh https://github.com/megastep/makeself
+echo ""
+echo "---------------------------------------------------------"
+echo "To install in /usr/local/bin for all users type:"
+echo ""
+echo "   asdf makeself global"
+echo ""
+echo "You MUST have sudo power,"
+echo "and you will be asked for your sudo password..."
+echo ""
+echo "---------------------------------------------------------"
+echo ""
